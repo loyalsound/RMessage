@@ -29,6 +29,7 @@ static NSMutableDictionary *globalDesignDictionary;
 @property (nonatomic, weak) IBOutlet UILabel *subtitleLabel;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleSubtitleContainerViewTopLayoutConstraint;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleSubtitleContainerViewCenterYConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *subtitleTopLayoutConstraint;
 
 @property (nonatomic, strong) UIImage *iconImage;
 
@@ -392,6 +393,42 @@ static NSMutableDictionary *globalDesignDictionary;
     } else {
         [self.viewController.view addConstraints:@[centerXConstraint, self.topToVCLayoutConstraint]];
     }
+    
+    // Hide subtitle if empty
+    if (self.subtitle == nil || [self.subtitle length] == 0) {
+        [self removeAllConstraintsFromView:self.subtitleLabel];
+        self.subtitleLabel.hidden = YES;
+        
+        NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint
+         constraintWithItem:self.titleLabel
+         attribute:NSLayoutAttributeBottom
+         relatedBy:NSLayoutRelationEqual
+         toItem:self.titleSubtitleContainerView
+         attribute:NSLayoutAttributeBottom
+         multiplier:1.0
+         constant:0];
+        
+        [self.titleSubtitleContainerView addConstraint:bottomConstraint];
+        [self invalidateIntrinsicContentSize];
+    }
+    
+    // Hide Image if empty
+    if (self.iconImage == nil) {
+        [self removeAllConstraintsFromView:self.iconImageView];
+        
+        self.iconImageView.hidden = YES;
+        NSLayoutConstraint *leadingConstraint = [NSLayoutConstraint
+         constraintWithItem:self.titleSubtitleContainerView
+         attribute:NSLayoutAttributeLeading
+         relatedBy:NSLayoutRelationEqual
+         toItem:self
+         attribute:NSLayoutAttributeLeading
+         multiplier:1.0
+         constant:15];
+        
+        [self addConstraint:leadingConstraint];
+        [self invalidateIntrinsicContentSize];
+    }
 }
 
 - (void)executeMessageViewCallBack
@@ -744,6 +781,21 @@ static NSMutableDictionary *globalDesignDictionary;
         return [UIColor hx_colorWithHexRGBAString:string];
     }
     return nil;
+}
+
+- (void)removeAllConstraintsFromView:(UIView *)view
+{
+    UIView *superview = view.superview;
+    while (superview != nil) {
+        for (NSLayoutConstraint *c in superview.constraints) {
+            if (c.firstItem == view || c.secondItem == view) {
+                [superview removeConstraint:c];
+            }
+        }
+        superview = superview.superview;
+    }
+    
+    [view removeConstraints:view.constraints];
 }
 
 @end

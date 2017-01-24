@@ -21,16 +21,16 @@
                     <rect key="frame" x="15" y="18" width="44" height="44"/>
                 </imageView>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="49I-AE-5sP">
-                    <rect key="frame" x="74" y="17" width="206" height="47"/>
+                    <rect key="frame" x="74" y="17" width="231" height="47"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Title" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-tq-cfR">
-                            <rect key="frame" x="0.0" y="0.0" width="206" height="21"/>
+                            <rect key="frame" x="0.0" y="0.0" width="231" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Subtitle" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86Q-SR-N4H">
-                            <rect key="frame" x="0.0" y="26" width="206" height="21"/>
+                            <rect key="frame" x="0.0" y="26" width="231" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                 <constraint firstItem="49I-AE-5sP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="XoR-Zr-h6e"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mDM-Gl-mfa" secondAttribute="bottom" constant="10" id="Y9o-qS-trm"/>
                 <constraint firstAttribute="trailing" secondItem="yvb-Pe-02p" secondAttribute="trailing" id="cCl-ch-Rnf"/>
-                <constraint firstAttribute="trailing" secondItem="49I-AE-5sP" secondAttribute="trailing" constant="40" id="cad-DE-tdP"/>
+                <constraint firstAttribute="trailing" secondItem="49I-AE-5sP" secondAttribute="trailing" constant="15" id="cad-DE-tdP"/>
                 <constraint firstAttribute="bottom" secondItem="49I-AE-5sP" secondAttribute="bottom" priority="250" constant="10" id="m0c-K0-I0O"/>
                 <constraint firstAttribute="bottom" secondItem="yvb-Pe-02p" secondAttribute="bottom" id="moL-Tk-qmr"/>
                 <constraint firstItem="mDM-Gl-mfa" firstAttribute="centerY" secondItem="49I-AE-5sP" secondAttribute="centerY" id="nOy-cz-n4l"/>
@@ -70,6 +70,7 @@
                 <outlet property="backgroundImageView" destination="yvb-Pe-02p" id="TjQ-5Z-K11"/>
                 <outlet property="iconImageView" destination="mDM-Gl-mfa" id="ewl-Wk-Mic"/>
                 <outlet property="subtitleLabel" destination="86Q-SR-N4H" id="b36-f7-jMs"/>
+                <outlet property="subtitleTopLayoutConstraint" destination="sUB-xD-36O" id="Og9-9w-cjl"/>
                 <outlet property="titleLabel" destination="bJU-tq-cfR" id="cQG-kC-CBc"/>
                 <outlet property="titleSubtitleContainerView" destination="49I-AE-5sP" id="gnK-Tn-Kb9"/>
                 <outlet property="titleSubtitleContainerViewCenterYConstraint" destination="XoR-Zr-h6e" id="nBn-eR-aks"/>
